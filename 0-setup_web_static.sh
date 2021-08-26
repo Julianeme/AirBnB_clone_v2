@@ -2,11 +2,7 @@
 # script that sets up your web servers for the deployment of web_static
 
 sudo apt-get -y update
-#IF -> verificamos si nginx esta instalado, sino, se instala
-if [ "$(dpkg-query -W -f='${Status}' nginx 2>/dev/null | grep -c "ok installed")" -eq 0 ];
-then
-	sudo apt-get -y install nginx;
-fi
+sudo apt-get -y install nginx;
 sudo mkdir -p /data/web_static/releases/test
 sudo mkdir -p /data/web_static/shared
 echo "PAGINA DE PRUEBA" | sudo tee /data/web_static/releases/test/index.html
