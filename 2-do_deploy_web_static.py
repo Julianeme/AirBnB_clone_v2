@@ -5,8 +5,7 @@ distributes an archive to your web servers
 """
 
 from fabric.api import put, env, run
-import os
-
+from os import exists
 env.hosts = ['34.73.56.44', '54.234.202.244']
 
 
@@ -15,7 +14,7 @@ def do_deploy(archive_path):
     distributes an archive to your web servers
     """
     # verificamos si el path existe
-    if os.path.exists(archive_path) is False:
+    if exists(archive_path) is False:
         return(False)
     try:
         filename_ext = archive_path.split("/")[-1]
