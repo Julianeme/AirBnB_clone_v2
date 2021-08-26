@@ -32,7 +32,7 @@ def do_deploy(archive_path):
         run('mv /data/web_static/releases/{}/web_static/* \
             /data/web_static/releases/{}/'.format(filename))
         # Delete the symbolic link /data/web_static/current from the web server
-        run('rm /data/web_static/current')
+        run('rm -rf /data/web_static/current{}'.format(filename)
         run('rm -rf /data/web_static/current')
         # Create a new the symbolic link /data/web_static/current on the
         # web server, linked to the new version of your code
