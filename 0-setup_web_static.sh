@@ -10,7 +10,7 @@ fi
 sudo mkdir -p /data/web_static/releases/test
 sudo mkdir -p /data/web_static/shared
 echo "PAGINA DE PRUEBA" | sudo tee /data/web_static/releases/test/index.html
-ln -sf /data/web_static/releases/test/ /data/web_static/current
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu /data/
 sudo chgrp -R ubuntu /data/
 sudo sed -i "/listen 80 default_server;/ a \\\trewrite ^/redirect_me https://www.anandtech.com permanent;" /etc/nginx/sites-available/default
