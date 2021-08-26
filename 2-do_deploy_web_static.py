@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-script that generates a .tgz archive from the contents of the web_static
-folder of your AirBnB Clone repo, using the function do_pack
+script (based on the file 1-pack_web_static.py) that
+distributes an archive to your web servers
 """
 
 from fabric.api import put, env, hosts, run
@@ -12,7 +12,7 @@ env.hosts = ['34.73.56.44', '54.234.202.244']
 
 def do_deploy(archive_path):
     # verificamos si el path existe
-    if os.path.exists(archive_path):
+    if os.path.exists(archive_path) is False:
         return(False)
     try:
         # Upload the archive to the / tmp / directory of the web server
