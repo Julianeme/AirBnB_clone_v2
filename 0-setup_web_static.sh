@@ -9,13 +9,12 @@ then
 fi
 sudo mkdir -p /data/web_static/releases/test
 sudo mkdir -p /data/web_static/shared
-printf %s "PAGINA DE PRUEBA \nHolberton School" > /data/web_static/releases/test/index.html
+echo "PAGINA DE PRUEBA" | sudo tee /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu /data/
 sudo chgrp -R ubuntu /data/
-sed -i "/listen [::]:80 default_server ipv6only=on;/ listen [::]:80 default_server;/" /etc/nginx/sites-available/default
-sed -i "/listen 80 default_server;/ a \trewrite ^/redirect_me https://www.anandtech.com permanent;" /etc/nginx/sites-available/default
-sed -i '/server_name _;/a error_page 404 /custom_404.html;\nlocation = /custom_404.html {\nroot /usr/share/nginx/html;\ninternal;\n}' /etc/nginx/sites-available/default
-sed -i "/listen 80 default_server;/ a \tadd_header X-Served-By ${HOSTNAME};" /etc/nginx/sites-available/default
-sed -i "23i \tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n" /etc/nginx/sites-available/default
+sudo sed -i "/listen 80 default_server;/ a \\\trewrite ^/redirect_me https://www.anandtech.com permanent;" /etc/nginx/sites-available/default
+sudo sed -i '/server_name _;/a \\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\troot /usr/share/nginx/html;\n\tinternal;\n}' /etc/nginx/sites-available/default
+sudo sed -i "/listen 80 default_server;/ a \\\tadd_header X-Served-By ${HOSTNAME};" /etc/nginx/sites-available/default
+sudo sed -i "23i \\\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n" /etc/nginx/sites-available/default
 sudo service nginx restart
