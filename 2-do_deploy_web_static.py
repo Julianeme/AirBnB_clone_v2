@@ -21,7 +21,7 @@ def do_deploy(archive_path):
         filename_ext = archive_path.split("/")[-1]
         filename = filename_ext.split(".")[0]
         # Uncompress the archive to folder /data/web_static/releases/<archive
-        run('tar zxvf /tmp/{} /data/web_static/releases/{}'.format
+        run('tar czxf /tmp/{} /data/web_static/releases/{}'.format
             (filename_ext, filename))
         # Delete the archive from the web server
         run(f'rm -r /tmp/{}'.format(filename_ext))
