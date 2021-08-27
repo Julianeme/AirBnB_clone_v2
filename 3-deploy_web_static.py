@@ -63,6 +63,7 @@ def deploy():
     """
     try:
         archive_path = do_pack()
-        return do_deploy(archive_path)
+        result = do_deploy(archive_path)
+        return result
     except:
         return False
