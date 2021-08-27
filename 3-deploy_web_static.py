@@ -5,8 +5,12 @@ folder of your AirBnB Clone repo, using the function do_pack
 """
 
 import os
-from fabric.api import put, env, run, local
+from fabric.api import put
+from fabric.api import env
+from fabric.api import run
+from fabric.api import local
 from datetime import datetime
+
 env.hosts = ['34.73.56.44', '54.234.202.244']
 
 
