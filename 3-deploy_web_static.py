@@ -10,16 +10,6 @@ from datetime import datetime
 env.hosts = ['34.73.56.44', '54.234.202.244']
 
 
-def deploy():
-    """
-    creates and distributes an archive to your web servers
-    """
-    archive_path = do_pack()
-    if archive_path is None:
-        return False
-    return do_deploy(archive_path)
-
-
 def do_pack():
     """
     Creates a versions folder and a tar archive of the web_static directory
@@ -61,3 +51,13 @@ def do_deploy(archive_path):
         return(True)
     except:
         return(False)
+
+
+def deploy():
+    """
+    creates and distributes an archive to your web servers
+    """
+    archive_path = do_pack()
+    if archive_path is None:
+        return False
+    return do_deploy(archive_path)
