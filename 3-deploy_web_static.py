@@ -25,7 +25,7 @@ def do_pack():
         file_name = str('web_static_' + created_at)
         file_path = 'versions/' + file_name
         local('tar -cvzf {}.tgz web_static'.format(file_path))
-        return(file_path)
+        return(file_path + ".tgz")
     except:
         return None
 
@@ -63,6 +63,7 @@ def deploy():
     """
     try:
         archive_path = do_pack()
+
         result = do_deploy(archive_path)
         return result
     except:
