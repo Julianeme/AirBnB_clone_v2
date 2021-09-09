@@ -31,7 +31,8 @@ def c_text(text):
     """
     Returns HBNB
     '"""
-    return 'C %s' % escape(text)
+    text = text.replace("_", " ")
+    return 'C {}'.format(text)
 
 
 if __name__ == "__main__":
