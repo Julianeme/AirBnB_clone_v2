@@ -29,11 +29,23 @@ def hbnb():
 @app.route('/c/<text>', strict_slashes=False)
 def c_text(text):
     """
-    display “C ” followed by the value of the text
-    variable (replace underscore _ symbols with a space)
+    display “C ” followed by the value of the text variable
+    (replace underscore _ symbols with a space)
     '"""
     text = text.replace("_", " ")
     return 'C {}'.format(text)
+
+
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def p_text(text='is cool'):
+    """
+    display “Python ”, followed by the value of the text variable
+    (replace underscore _ symbols with a space )
+    The default value of text is “is cool
+    '"""
+    text = text.replace("_", " ")
+    return 'Python {}'.format(text)
 
 
 if __name__ == "__main__":
