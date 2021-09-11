@@ -2,10 +2,11 @@
 """ script that starts a Flask web application:
     listens on 0.0.0.0, port 5000
     Routes:
-    /: display “Hello HBNB!”
-    /hbnb: display “HBNB”
+    /: display ?Hello HBNB!?
+    /hbnb: display ?HBNB?
 """
 from models import storage
+from models.state import State
 from flask import Flask
 from flask import render_template
 
@@ -18,7 +19,7 @@ def states_list():
     """
     Returns HBNB
     '"""
-    states = storage.all("State")
+    states = storage.all(State)
     return render_template("7-states_list.html", states=states)
 
 
