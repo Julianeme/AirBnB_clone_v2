@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 
 @app.route('/cities_by_states', strict_slashes=False)
-def states_list():
+def cities_list():
     """
     Returns HBNB
     '"""
@@ -23,7 +23,7 @@ def states_list():
 
 
 @app.teardown_appcontext
-def teardonw_appcontext(exc):
+def teardonw_appcontext(exception):
     storage.close()
 
 

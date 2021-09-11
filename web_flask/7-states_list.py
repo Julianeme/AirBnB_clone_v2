@@ -23,8 +23,8 @@ def states_list():
 
 
 @app.teardown_appcontext
-def teardonw_appcontext(exc):
-        storage.close()
+def teardonw_appcontext(exception):
+    storage.close()
 
 
 if __name__ == "__main__":
