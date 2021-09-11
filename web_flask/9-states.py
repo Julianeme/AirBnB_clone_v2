@@ -33,7 +33,7 @@ def states_by_id():
         name = states.name
         id = 'State.' + state_id
         states_dict = {}
-        for keys,values in states.items():
+        for keys, values in states.items():
             if states[keys] == id:
                 states_dict[id].append(states[values])
 
