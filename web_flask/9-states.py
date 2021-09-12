@@ -31,12 +31,11 @@ def states_by_id(id):
     '"""
     states = storage.all(State)
     id = 'State.' + id
-    states_dict = []
     for keys, values in states.items():
         if states[keys] == id:
             name = values.name
             return render_template(
-                "9-states.html", name=name, states_dict=states_dict)
+                "9-states.html", name=name, states=states, id=id)
     return render_template("9-states.html")
 
 
