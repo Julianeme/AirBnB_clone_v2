@@ -37,6 +37,7 @@ def states_by_id(id):
             name = values.name
             return render_template(
                 "9-states.html", name=name, states_dict=states_dict)
+    return render_template("9-states.html")
 
 
 @app.teardown_appcontext
