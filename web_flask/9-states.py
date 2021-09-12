@@ -25,17 +25,17 @@ def states():
 
 
 @app.route('/states/<id>', strict_slashes=False)
-def states_by_id():
+def states_by_id(id):
     """
     Shows a state searched by id and all its cities
     '"""
     states = storage.all(State)
-    name = states.name
-    id = 'State.' + state_id
-    states_dict = {}
+    id = 'State.' + id
+    states_dict = []
     for keys, values in states.items():
         if states[keys] == id:
-            states_dict[id].append(states[values])
+            name = values.name
+            states_dict.append(states[values])
 
     return render_template("9-states.html", name=name, states_dict=states_dict)
 
