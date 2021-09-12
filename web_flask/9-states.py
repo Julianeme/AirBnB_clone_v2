@@ -8,6 +8,7 @@
 from models import storage
 from flask import Flask
 from flask import render_template
+from models.state import State
 
 
 app = Flask(__name__)
@@ -19,7 +20,7 @@ def states():
     Returns list of all State objects present
     in DBStorage sorted by name (A->Z)
     '"""
-    states = storage.all("State")
+    states = storage.all(State)
     return render_template("7-states_list.html", states=states)
 
 
@@ -28,7 +29,7 @@ def states_by_id():
     """
     Shows a state searched by id and all its cities
     '"""
-    states = storage.all("State")
+    states = storage.all(State)
     if type(id) is int and id in states:
         name = states.name
         id = 'State.' + state_id
