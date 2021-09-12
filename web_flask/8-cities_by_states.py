@@ -8,6 +8,7 @@
 from models import storage
 from flask import Flask
 from flask import render_template
+from models.state import State
 
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def cities_list():
     """
     Returns HBNB
     '"""
-    states = storage.all("State")
+    states = storage.all(State)
     return render_template("8-cities_by_states.html", states=states)
 
 
