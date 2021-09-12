@@ -35,9 +35,8 @@ def states_by_id(id):
     for keys, values in states.items():
         if states[keys] == id:
             name = values.name
-            states_dict.append(states[values])
-
-    return render_template("9-states.html", name=name, states_dict=states_dict)
+            return render_template(
+                "9-states.html", name=name, states_dict=states_dict)
 
 
 @app.teardown_appcontext
